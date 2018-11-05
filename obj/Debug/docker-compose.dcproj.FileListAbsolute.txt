@@ -1,0 +1,15 @@
+C:\Users\Sekul\source\repos\CompanyEmployee\bin\Debug\CompanyEmployee.Web.Views.dll
+C:\Users\Sekul\source\repos\CompanyEmployee\bin\Debug\CompanyEmployee.Web.Views.pdb
+C:\Users\Sekul\source\repos\CompanyEmployee\bin\Debug\CompanyEmployee.Web.dll
+C:\Users\Sekul\source\repos\CompanyEmployee\bin\Debug\CompanyEmployee.Services.dll
+C:\Users\Sekul\source\repos\CompanyEmployee\bin\Debug\CompanyEmployee.API.dll
+C:\Users\Sekul\source\repos\CompanyEmployee\bin\Debug\CompanyEmployee.Data.dll
+C:\Users\Sekul\source\repos\CompanyEmployee\bin\Debug\CompanyEmployee.Common.dll
+C:\Users\Sekul\source\repos\CompanyEmployee\bin\Debug\CompanyEmployee.Web.pdb
+C:\Users\Sekul\source\repos\CompanyEmployee\bin\Debug\CompanyEmployee.Services.pdb
+C:\Users\Sekul\source\repos\CompanyEmployee\bin\Debug\CompanyEmployee.API.pdb
+C:\Users\Sekul\source\repos\CompanyEmployee\bin\Debug\CompanyEmployee.Data.pdb
+C:\Users\Sekul\source\repos\CompanyEmployee\bin\Debug\CompanyEmployee.Common.pdb
+C:\Users\Sekul\source\repos\CompanyEmployee\obj\Debug\docker-compose.dcprojAssemblyReference.cache
+C:\Users\Sekul\source\repos\CompanyEmployee\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\Sekul\source\repos\CompanyEmployee\obj\Debug\docker-compose.dcproj.CopyComplete
