@@ -15,4 +15,3 @@ C:\Users\Sekul\Desktop\Test\CompanyEmployee.Common\obj\Debug\netstandard2.0\Comp
 C:\Users\Sekul\Desktop\Test\CompanyEmployee.Common\obj\Debug\netstandard2.0\CompanyEmployee.Common.AssemblyInfo.cs
 C:\Users\Sekul\Desktop\Test\CompanyEmployee.Common\obj\Debug\netstandard2.0\CompanyEmployee.Common.dll
 C:\Users\Sekul\Desktop\Test\CompanyEmployee.Common\obj\Debug\netstandard2.0\CompanyEmployee.Common.pdb
-C:\Users\Sekul\Desktop\Test\CompanyEmployee.Common\obj\Debug\netstandard2.0\CompanyEmployee.Common.csprojAssemblyReference.cache

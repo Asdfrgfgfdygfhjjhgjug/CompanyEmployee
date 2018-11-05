@@ -14,17 +14,18 @@ namespace WebApplication1.Controllers
     public class EmployeeController : Controller
     {
         private readonly HttpClient httpClient;
-        private Uri BaseEndpoint { get; set; }
 
-        public EmployeeController(Uri baseEndpoint)
+        private Uri BaseEndpoint { get; set; } = new Uri("https://localhost:44352/api/");
+
+        public EmployeeController(/*Uri baseEndpoint*/)
         {
             httpClient = new HttpClient();
 
-            if (baseEndpoint == null)
-            {
-                throw new ArgumentNullException("baseEndpoint");
-            }
-            BaseEndpoint = baseEndpoint;
+            //if (baseEndpoint == null)
+            //{
+            //    throw new ArgumentNullException("baseEndpoint");
+            //}
+            //BaseEndpoint = baseEndpoint;
         }
 
         //public async Task<IActionResult> Index()
@@ -77,20 +78,15 @@ namespace WebApplication1.Controllers
         //}
 
         public IActionResult Create(int id)
-            => this.View();
+            => this.View(new EmployeeRequestModel { CompanyId = id });
 
         [HttpPost]
-        public async Task<IActionResult> Create(EmployeeRequestModel model)
+        public IActionResult Create(EmployeeRequestModel model)
         {
-            addHeaders();
-            var requestUrl = "https://localhost:44352/api/employee/edit";
-            var response = await httpClient.PostAsync(requestUrl, CreateHttpContent<EmployeeRequestModel>(model));
-            response.EnsureSuccessStatusCode();
-            var data = await response.Content.ReadAsStringAsync();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,  "Employee"));
+            var response = httpClient.PostAsync(requestUrl.ToString(), CreateHttpContent<EmployeeRequestModel>(model));
 
-             return this.RedirectToAction(
-                nameof(EmployeeController.Create),
-                "Create", new { id = model.CompanyId });
+            return this.RedirectToAction("Create", "Employee", new {id = model.CompanyId});
         }
  
         //public async Task<List<UsersModel>> GetUsers()
@@ -100,12 +96,12 @@ namespace WebApplication1.Controllers
         //    return await GetAsync<List<UsersModel>>(requestUrl);
         //}
 
-        public async Task<Message<EmployeeRequestModel>> SaveUser(EmployeeRequestModel model)
-        {
-            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-                "User/SaveUser"));
-            return await PostAsync<EmployeeRequestModel>(requestUrl, model);
-        }
+        //public async Task<Message<EmployeeRequestModel>> Create(EmployeeRequestModel model)
+        //{
+        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+        //        "User/SaveUser"));
+        //    return await PostAsync<EmployeeRequestModel>(requestUrl, model);
+        //}
 
         private async Task<T> GetAsync<T>(Uri requestUrl)
         {
@@ -139,6 +135,7 @@ namespace WebApplication1.Controllers
         public Uri CreateRequestUri(string relativePath, string queryString = "")
         {
             var endpoint = new Uri(BaseEndpoint, relativePath);
+
             var uriBuilder = new UriBuilder(endpoint);
             uriBuilder.Query = queryString;
             return uriBuilder.Uri;
@@ -164,7 +161,7 @@ namespace WebApplication1.Controllers
         private void addHeaders()
         {
             httpClient.DefaultRequestHeaders.Remove("userIP");
-            httpClient.DefaultRequestHeaders.Add("userIP", "192.168.1.1");
+            httpClient.DefaultRequestHeaders.Add("userIP", "84.40.90.98");
         }
     }
 }

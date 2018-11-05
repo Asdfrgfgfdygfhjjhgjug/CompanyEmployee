@@ -33,7 +33,7 @@
                 <input asp-for="VacationDays" class="form-control" type="number" min="1" />
                 <span asp-validation-for="VacationDays" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="CompanyId" value="id"/>
+            <input type="hidden" asp-for="CompanyId" />
 
             <button type="submit" class="btn btn-block btn-primary">Create</button>
         </form>
