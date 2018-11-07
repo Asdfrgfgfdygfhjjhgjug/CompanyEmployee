@@ -23,7 +23,7 @@
             this.db = db;
         }
 
-        public async Task Create(EmployeeRequestModel model)
+        public void Create(EmployeeRequestModel model)
         {
             var employee = new Employee()
             {
@@ -35,8 +35,8 @@
                 CompanyId = model.CompanyId
             };
 
-            await this.db.Employees.AddAsync(employee);
-            await this.db.SaveChangesAsync();
+            this.db.Employees.Add(employee);
+            this.db.SaveChanges();
         }
 
         public async Task Delete(int id)

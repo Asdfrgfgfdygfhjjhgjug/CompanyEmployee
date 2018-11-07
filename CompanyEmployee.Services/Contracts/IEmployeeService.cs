@@ -15,7 +15,7 @@
 
         Task<bool> Exists(int id);
 
-        Task Create(EmployeeRequestModel model);
+        void Create(EmployeeRequestModel model);
 
         Task Delete(int id);
 

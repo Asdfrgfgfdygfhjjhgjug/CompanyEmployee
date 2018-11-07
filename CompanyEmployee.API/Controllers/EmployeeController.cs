@@ -1,15 +1,15 @@
-﻿namespace CompanyEmployee.API.Controllers
-{
-    using CompanyEmployee.API.Infrastructure.Extensions;
-    using CompanyEmployee.API.Infrastructure.Filters;
-    using CompanyEmployee.Services.Contracts;
-    using CompanyEmployee.Services.Models;
-    using Microsoft.AspNetCore.Mvc;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
+﻿using CompanyEmployee.API.Infrastructure.Extensions;
+using CompanyEmployee.API.Infrastructure.Filters;
+using CompanyEmployee.Services.Contracts;
+using CompanyEmployee.Services.Models;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
+namespace CompanyEmployee.API.Controllers
+{
     public class EmployeeController : BaseApiController
     {
         private readonly IEmployeeService employeeService;
@@ -19,12 +19,15 @@
             this.employeeService = employeeService;
         }
 
+        //[HttpGet]
+        //public async Task<IActionResult> Get()
+        //    => this.OkOrNotFound(await this.employeeService.All());
+
         [HttpGet]
         [Route("{id:int:min(1)}")]
         public IActionResult Get(int id)
            => this.OkOrNotFound(this.employeeService.EmployeeById(id));
 
-        //[HttpGet("{id}/employees")]
         [HttpGet]
         [Route("{id:int:min(1)}")]
         public async Task<IActionResult> GetEmployees (int id)
@@ -51,13 +54,12 @@
             return Ok();
         }
 
-        
         [HttpPost]
         [ValidateModelState]
-        public async Task<IActionResult> Post([FromBody]EmployeeRequestModel model)
+        public IActionResult Edit(EmployeeRequestModel model)
         {
-            await this.employeeService.Create(model);
-            return Ok(model.CompanyId);
+            this.employeeService.Create(model);
+            return Ok();
         }
     }
 }
