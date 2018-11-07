@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Companies>
+
+<br /> <br />
+<a class="btn btn-warning btn-sm" href="/Home/Create/">Create Company</a><br /> <br />
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Founded</th>
+            <th>Information</th>
+            <th>Modify Company</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var company in Model)
+        {
+            <tr>
+                <td>@company.Name</td>
+                <td>@company.Founded</td>
+                <td>@company.Information</td>
+                <td>
+                    <a class="btn btn-warning btn-sm" href="/Employee/Create/@company.Id">Add Employee</a>
+                    <a class="btn btn-warning btn-sm" href="/Home/Details/@company.Id">Details</a>
+                    <a class="btn btn-warning btn-sm" href="/Home/Edit/@company.Id">Edit</a>
+                    <a class="btn btn-warning btn-sm" href="/Home/Delete/@company.Id">Delete</a>
+                </td>
+
+            </tr>
+            @*<tr>
+                    @if (@company.Employees == null)
+                    {
+                        <td>
+                            <a class="btn btn-warning btn-sm" href="/Employee/Create/@company.Id">Add Employee</a>
+                        </td>
+                    }
+                    @foreach (var employ in company.Employees)
+                    {
+                        <td>@employ.Name</td>
+                        <td>@employ.Experience</td>
+                        <td>@employ.StartingDate</td>
+                        <td>@employ.VacationDays</td>
+                        <td>
+                            <a class="btn btn-warning btn-sm" href="/Employee/Create/@company.Id">Add Employee</a>
+                            <a class="btn btn-warning btn-sm" href="/Employee/Edit/@company.Id">Edit</a>
+                        </td>
+                    }
+                </tr>*@
+        }
+
+    </tbody>
+</table>

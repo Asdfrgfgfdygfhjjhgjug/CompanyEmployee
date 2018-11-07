@@ -6,7 +6,7 @@
 
     public class EmployeeRequestModel
     {
-        [Required]
+     
         public string Name { get; set; }
 
         [Required]

@@ -16,6 +16,7 @@
         public Experience Experience { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime StartingDate { get; set; }
 
         [Required]

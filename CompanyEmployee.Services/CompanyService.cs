@@ -27,7 +27,7 @@ namespace CompanyEmployee.Services
             .ProjectTo<AllCompanyModel>()
             .ToListAsync();
 
-        public async Task<int> Create(CompanyRequestModel model)
+        public async Task Create(CompanyRequestModel model)
         {
             var company = new Company
             {
@@ -38,8 +38,6 @@ namespace CompanyEmployee.Services
 
             await this.db.Companys.AddAsync(company);
             await this.db.SaveChangesAsync();
-
-            return company.Id;
         }
 
         public async Task Delete(int id)

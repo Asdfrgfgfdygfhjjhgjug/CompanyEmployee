@@ -11,7 +11,7 @@
     {
         Task<IEnumerable<AllCompanyModel>> All();
 
-        Task<int> Create(CompanyRequestModel model);
+        Task Create(CompanyRequestModel model);
 
         Task<CompanyServiceModel> Details(int id);
 

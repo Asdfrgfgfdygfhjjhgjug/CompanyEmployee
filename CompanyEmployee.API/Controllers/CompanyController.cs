@@ -36,9 +36,7 @@
             {
                 return NotFound("Category does not exist.");
             }
-
             await this.companyService.Delete(id);
-
             return Ok();
         }
 
@@ -52,10 +50,10 @@
                 this.ModelState.AddModelError(nameof(CompanyRequestModel.Name), "Company name already exists.");
                 return BadRequest(this.ModelState);
             }
-
-            var id = await this.companyService.Create(model);
-
-            return this.Ok(id);
+            await this.companyService.Create(model);
+            //var id = await this.companyService.Create(model);
+            //return this.Ok(id);
+            return this.Ok();
         }
 
         [HttpPut("{id:int:min(1)}")]
@@ -67,16 +65,13 @@
             {
                 return NotFound("Company does not exist");
             }
-
             var categoryNameExists = await this.companyService.Exists(id, model.Name);
             if (categoryNameExists)
             {
                 this.ModelState.AddModelError(nameof(CompanyRequestModel.Name), "Company name already exists");
                 return BadRequest(this.ModelState);
             }
-
             await this.companyService.Update(id, model);
-
             return Ok();
         }
     }

@@ -13,6 +13,8 @@
         [Required]
         public string Name { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime Founded { get; set; }
 
         [Required]
