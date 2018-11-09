@@ -8,6 +8,7 @@ using CompanyEmployee.Services.Contracts;
 using CompanyEmployee.Services.Models;
 using System.Net.Http;
 using CompanyEmployee.Web.Models.Company;
+using CompanyEmployee.Web.Models;
 
 namespace CompanyEmployee.Web.Controllers
 {
@@ -33,6 +34,7 @@ namespace CompanyEmployee.Web.Controllers
         {
             var requestUrl = client.CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, "Company/" + id));
             var details = await client.GetAsync<CompanyDetails>(requestUrl);
+
             return View(details);
         }
 
@@ -40,14 +42,31 @@ namespace CompanyEmployee.Web.Controllers
         {
             var requestUrl = client.CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, "Company/" + id));
             var details = await client.GetAsync<CompanyDetails>(requestUrl);
+
             return View(details);
         }
 
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    await this.companyService.Delete(id);
-        //    return RedirectToAction(nameof(HomeController.Index), "Home");
-        //}
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditCompany model)
+        {
+            var requestUrl = client.CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, "Company/Put"));
+            var company = await client.PostAsync<EditCompany>(requestUrl, model);
+
+            return this.RedirectToAction(nameof(HomeController.Index), "Home");
+        }
+
+        public IActionResult Delete(int id) => View(id);
+
+        public async Task<IActionResult> Destroy(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("Not a valid Company");
+            }
+            var requestUrl = client.CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, "Company/" + id));
+            await client.DeleteAsync(requestUrl);
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
 
         public ActionResult Create() 
             =>  this.View(new CreateCompany());
@@ -57,51 +76,33 @@ namespace CompanyEmployee.Web.Controllers
         {
             var requestUrl = client.CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, "Company"));
             var response = await client.PostAsync(requestUrl, model);
+
             return this.RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Edit(CompanyRequestModel model)
-        //{
-        //    var user = await this.companyService.Exists(model.Id);
-        //    if (user == true)
-        //    {
-        //        this.ModelState.AddModelError(string.Empty, "Company exists");
-        //    }
+        public IActionResult About()
+        {
+            ViewData["Message"] = "Your application description page.";
 
-        //    await this.companyService.Create(model);
+            return View();
+        }
 
-        //    this.TempData.AddSuccessMessage("Company created successfully.");
+        public IActionResult Contact()
+        {
+            ViewData["Message"] = "Your contact page.";
 
-        //    return this.RedirectToAction(
-        //        nameof(HomeController.Index),
-        //        "Home",
-        //        routeValues: new { area = string.Empty });
-        //}
+            return View();
+        }
 
-        //public IActionResult About()
-        //{
-        //    ViewData["Message"] = "Your application description page.";
+        public IActionResult Privacy()
+        {
+            return View();
+        }
 
-        //    return View();
-        //}
-
-        //public IActionResult Contact()
-        //{
-        //    ViewData["Message"] = "Your contact page.";
-
-        //    return View();
-        //}
-
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
-
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }

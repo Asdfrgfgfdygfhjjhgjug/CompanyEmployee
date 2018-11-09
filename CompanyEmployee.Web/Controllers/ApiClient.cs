@@ -39,6 +39,12 @@
             var data = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<Message<T>>(data);
         }
+
+        public async Task DeleteAsync(Uri requestUrl)
+        {
+           await httpClient.DeleteAsync(requestUrl.ToString());
+        }
+
         public async Task<Message<T1>> PostAsync<T1, T2>(Uri requestUrl, T2 content)
         {
             addHeaders();

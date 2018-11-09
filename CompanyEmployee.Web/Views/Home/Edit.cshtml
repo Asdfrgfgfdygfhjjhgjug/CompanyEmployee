@@ -19,7 +19,7 @@
             <span asp-validation-for="Information" class="form-text text-danger"></span>
         </div>
         <div>
-            <input type="submit" value="Modif Company" class="btn btn-block btn-primary" />
+            <input type="submit" value="Modif Company" class="btn btn-warning btn-md" />
         </div>
     </form>
     <div class="col-md-7 col-md-offset-1 table-hover">
@@ -45,13 +45,16 @@
                             <tr>
                                 <th>@employee.Name</th>
                                 <td>@employee.Experience</td>
-                                <td>@employee.StartingDate</td>
+                                <td>@employee.StartingDate.ToString("dd/MM/yyyy")</td>
                                 <td>@employee.Salary</td>
                                 <td>@employee.VacationDays</td>
                                 <td>
                                     <a asp-controller="Employee"
-                                        asp-action=@(nameof(EmployeeController.Edit))
-                                        asp-route-id="@employee.Id">Edit</a>
+                                       asp-action=@(nameof(EmployeeController.Edit))
+                                       asp-route-id="@employee.Id">Edit</a>
+                                    <a asp-controller="Employee"
+                                       asp-action=@(nameof(EmployeeController.Delete))
+                                       asp-route-id="@employee.Id">Delete</a>
                                 </td>
                             </tr>
                         </tbody>

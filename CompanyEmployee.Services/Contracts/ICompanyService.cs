@@ -17,12 +17,14 @@
 
         Task Delete(int id);
 
+        Task DeleteEmployees(int id);
+
         Task<bool> Exists(int id);
 
         Task<bool> Exists(int id, string name);
 
         Task<bool> Exists(string name);
 
-        Task Update(int id, CompanyRequestModel model);
+        Task Update(CompanyRequestModel model);
     }
 }

@@ -16,6 +16,8 @@
 
         Task<Message<T1>> PostAsync<T1, T2>(Uri requestUrl, T2 content);
 
+        Task DeleteAsync(Uri requestUrl);
+
         Uri CreateRequestUri(string relativePath, string queryString = "");
 
         HttpContent CreateHttpContent<T>(T content);

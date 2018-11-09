@@ -24,6 +24,7 @@ namespace CompanyEmployee.Web.Models.Employee
         [Required]
         public int VacationDays { get; set; }
 
+        [Required]
         public int CompanyId { get; set; }
     }
 }

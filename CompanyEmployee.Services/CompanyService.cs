@@ -47,8 +47,14 @@ namespace CompanyEmployee.Services
             {
                 return;
             }
-
             this.db.Remove(company);
+            await this.db.SaveChangesAsync();
+        }
+
+        public async Task DeleteEmployees(int id)
+        {
+            var employees = await this.db.Employees.Where(c => c.CompanyId == id).ToListAsync<Employee>();
+            this.db.RemoveRange(employees);
             await this.db.SaveChangesAsync();
         }
 
@@ -67,7 +73,7 @@ namespace CompanyEmployee.Services
         public async Task<bool> Exists(int id, string name)
             => await this.db
             .Companys
-            .Where(c => c.Id != id)
+            .Where(c => c.Id == id)
             .AnyAsync(c => c.Name.ToLower() == name.ToLower());
 
         public async Task<bool> Exists(string name)
@@ -75,17 +81,19 @@ namespace CompanyEmployee.Services
             .Companys
             .AnyAsync(c => c.Name.ToLower() == name.ToLower());
 
-        public async Task Update(int id, CompanyRequestModel model)
+        public async Task Update(CompanyRequestModel model)
         {
-            var company = await this.db.Companys.FindAsync(id);
+            var company = await this.db.Companys.FindAsync(model.Id);
             if (company == null)
             {
                 return;
             }
 
-            if (company.Name != model.Name)
+            if (company.Name != model.Name || 
+                company.Information != model.Information ||
+                company.Founded != model.Founded)
             {
-                company.Id = id;
+                company.Id = model.Id;
                 company.Name = model.Name;
                 company.Founded = model.Founded;
                 company.Information = model.Information;

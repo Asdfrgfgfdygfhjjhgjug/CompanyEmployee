@@ -2,8 +2,7 @@
 
 <h2>@ViewData["Success"]</h2>
 
-@*<a class="btn btn-warning btn-sm" href="/Home/Details/@Model.CompanyId">Back to Company</a>*@
-
+<h2>Add Employee</h2>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -35,7 +34,7 @@
             </div>
             <input type="hidden" asp-for="CompanyId" />
 
-            <button type="submit" class="btn btn-block btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary btn-md">Create</button>
         </form>
     </div>
 </div>

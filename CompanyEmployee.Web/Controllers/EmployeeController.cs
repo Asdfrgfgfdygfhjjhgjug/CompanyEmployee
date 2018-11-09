@@ -27,22 +27,10 @@ namespace CompanyEmployee.Web.Controllers
         //    var allCompanys = await this.employeeService.
         //    return View(allCompanys);
         //}
-
-        //public IActionResult Edit(int id)
-        //{
-        //    var employee = this.employeeService.EmployeeById(id);
-
-        //    if (employee == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(employee);
-        //}
-
+ 
         public async Task<IActionResult> Edit(int id)
         {
-            var requestUrl = client.CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, "Employee/" + id));
+            var requestUrl = client.CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, "Employee/ById/" + id));
             var details = await client.GetAsync<EditEmployee>(requestUrl);
             return View(details);
         }
@@ -51,11 +39,10 @@ namespace CompanyEmployee.Web.Controllers
         //[ValidateModelState]
         public IActionResult Edit(EditEmployee employee)
         {
-            var requestUrl = client.CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, "Employee"));
+            var requestUrl = client.CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, "Employee/Put"));
             var response = client.PostAsync(requestUrl, employee);
-            return this.RedirectToAction("Details", "Home", new { id = employee.CompanyId });
+            return this.RedirectToAction("Index", "Home", new { id = employee.CompanyId });
         }
-
 
         //public async Task<IActionResult> Details(int id)
         //{
@@ -63,12 +50,18 @@ namespace CompanyEmployee.Web.Controllers
         //    return View(companyDetails);
         //}
 
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    await this.employeeService.Delete(id);
-        //    return RedirectToAction(nameof(HomeController.Index), "Home");
-        //}
+        public IActionResult Delete(int id) => View(id);
 
+        public async Task<IActionResult> Destroy(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("Not a valid Employee");
+            }
+            var requestUrl = client.CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, "Employee/" + id));
+            await client.DeleteAsync(requestUrl);
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
 
         public IActionResult Create(int id)
             => this.View(new CreateEmployee { CompanyId = id });
@@ -79,82 +72,7 @@ namespace CompanyEmployee.Web.Controllers
             var requestUrl = client.CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, "Employee"));
             var response = client.PostAsync(requestUrl, model);
             return this.RedirectToAction("Index", "Home", new { id = model.CompanyId });
-        }
-
-        //public async Task<List<UsersModel>> GetUsers()
-        //{
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "User/GetAllUsers"));
-        //    return await GetAsync<List<UsersModel>>(requestUrl);
-        //}
-
-        //public async Task<Message<EmployeeRequestModel>> Create(EmployeeRequestModel model)
-        //{
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "User/SaveUser"));
-        //    return await PostAsync<EmployeeRequestModel>(requestUrl, model);
-        //}
-
-        //private async Task<T> GetAsync<T>(Uri requestUrl)
-        //{
-        //    addHeaders();
-        //    var response = await client.GetAsync(requestUrl, HttpCompletionOption.ResponseHeadersRead);
-        //    response.EnsureSuccessStatusCode();
-        //    var data = await response.Content.ReadAsStringAsync();
-        //    return JsonConvert.DeserializeObject<T>(data);
-        //}
-
-        /// <summary>
-        /// Common method for making POST calls
-        /// </summary>
-        //private async Task<Message<T>> PostAsync<T>(Uri requestUrl, T content)
-        //{
-        //    addHeaders();
-        //    var response = await client.PostAsync(requestUrl, CreateHttpContent<T>(content));
-        //    response.EnsureSuccessStatusCode();
-        //    var data = await response.Content.ReadAsStringAsync();
-        //    return JsonConvert.DeserializeObject<Message<T>>(data);
-        //}
-        //private async Task<Message<T1>> PostAsync<T1, T2>(Uri requestUrl, T2 content)
-        //{
-        //    addHeaders();
-        //    var response = await client.PostAsync(requestUrl, CreateHttpContent<T2>(content));
-        //    response.EnsureSuccessStatusCode();
-        //    var data = await response.Content.ReadAsStringAsync();
-        //    return JsonConvert.DeserializeObject<Message<T1>>(data);
-        //}
-
-        //public Uri CreateRequestUri(string relativePath, string queryString = "")
-        //{
-        //    var endpoint = new Uri(BaseEndpoint, relativePath);
-
-        //    var uriBuilder = new UriBuilder(endpoint);
-        //    uriBuilder.Query = queryString;
-        //    return uriBuilder.Uri;
-        //}
-
-        //private HttpContent CreateHttpContent<T>(T content)
-        //{
-        //    var json = JsonConvert.SerializeObject(content, MicrosoftDateFormatSettings);
-        //    return new StringContent(json, Encoding.UTF8, "application/json");
-        //}
-
-        //private static JsonSerializerSettings MicrosoftDateFormatSettings
-        //{
-        //    get
-        //    {
-        //        return new JsonSerializerSettings
-        //        {
-        //            DateFormatHandling = DateFormatHandling.MicrosoftDateFormat
-        //        };
-        //    }
-        //}
-
-        //private void addHeaders()
-        //{
-        //    client.DefaultRequestHeaders.Remove("userIP");
-        //    client.DefaultRequestHeaders.Add("userIP", "84.40.90.98");
-        //}
+        } 
     }
 }
 

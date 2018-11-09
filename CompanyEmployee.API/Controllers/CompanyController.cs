@@ -28,16 +28,18 @@
         public async Task<IActionResult> Get(int id)
            => this.OkOrNotFound(await this.companyService.Details(id));
 
+
         [HttpDelete("{id:int:min(1)}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var categoryExists = await this.companyService.Exists(id);
-            if (!categoryExists)
+            var companyExists = await this.companyService.Exists(id);
+            if (!companyExists)
             {
-                return NotFound("Category does not exist.");
+                return NotFound("Company does not exist.");
             }
+            await this.companyService.DeleteEmployees(id);
             await this.companyService.Delete(id);
-            return Ok();
+            return this.Ok();
         }
 
         [HttpPost]
@@ -51,28 +53,28 @@
                 return BadRequest(this.ModelState);
             }
             await this.companyService.Create(model);
-            //var id = await this.companyService.Create(model);
-            //return this.Ok(id);
+
             return this.Ok();
         }
 
-        [HttpPut("{id:int:min(1)}")]
+        [HttpPost]
+        [Route(nameof(Put))]
         [ValidateModelState]
-        public async Task<IActionResult> Put(int id, [FromBody]CompanyRequestModel model)
+        public async Task<IActionResult> Put([FromBody]CompanyRequestModel model)
         {
-            var categoryExists = await this.companyService.Exists(id);
-            if (!categoryExists)
+            var companyExists = await this.companyService.Exists(model.Id);
+            if (!companyExists)
             {
                 return NotFound("Company does not exist");
             }
-            var categoryNameExists = await this.companyService.Exists(id, model.Name);
-            if (categoryNameExists)
+            var exists = await this.companyService.Exists(model.Id, model.Name);
+            if (!exists)
             {
-                this.ModelState.AddModelError(nameof(CompanyRequestModel.Name), "Company name already exists");
+                this.ModelState.AddModelError(nameof(CompanyRequestModel.Name), "Company name does not exists");
                 return BadRequest(this.ModelState);
             }
-            await this.companyService.Update(id, model);
-            return Ok();
+            await this.companyService.Update(model);
+            return this.Ok();
         }
     }
 }

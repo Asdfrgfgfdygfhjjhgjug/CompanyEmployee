@@ -41,3 +41,5 @@ C:\Users\Sekul\Desktop\Test\CompanyEmployee.Web\obj\Debug\netcoreapp2.1\CompanyE
 C:\Users\Sekul\Desktop\Test\CompanyEmployee.Web\obj\Debug\netcoreapp2.1\CompanyEmployee.Web.dll
 C:\Users\Sekul\Desktop\Test\CompanyEmployee.Web\obj\Debug\netcoreapp2.1\CompanyEmployee.Web.pdb
 C:\Users\Sekul\Desktop\Test\CompanyEmployee.Web\obj\Debug\netcoreapp2.1\Razor\Views\Home\Edit.g.cshtml.cs
+C:\Users\Sekul\Desktop\Test\CompanyEmployee.Web\obj\Debug\netcoreapp2.1\Razor\Views\Home\Delete.g.cshtml.cs
+C:\Users\Sekul\Desktop\Test\CompanyEmployee.Web\obj\Debug\netcoreapp2.1\Razor\Views\Employee\Delete.g.cshtml.cs

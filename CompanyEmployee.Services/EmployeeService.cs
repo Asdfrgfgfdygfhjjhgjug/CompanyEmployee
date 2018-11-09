@@ -39,6 +39,33 @@
             await this.db.SaveChangesAsync();
         }
 
+        public async Task Update(EmployeeRequestModel model)
+        {
+            var employee = await this.db.Employees.FindAsync(model.Id);
+            if (employee == null)
+            {
+                return;
+            }
+
+            if (employee.Name != model.Name ||
+                employee.Experience != model.Experience ||
+                employee.StartingDate != model.StartingDate ||
+                employee.Salary != model.Salary || 
+                employee.VacationDays != model.VacationDays || 
+                employee.CompanyId != model.CompanyId
+                )
+            {
+                employee.Id = model.Id;
+                employee.Experience = model.Experience;
+                employee.StartingDate = model.StartingDate;
+                employee.Salary = model.Salary;
+                employee.VacationDays = model.VacationDays;
+                employee.CompanyId = model.CompanyId;
+
+                await this.db.SaveChangesAsync();
+            }
+        }
+
         public async Task Delete(int id)
         {
             var employee = await this.db.Employees.FindAsync(id);

@@ -20,4 +20,10 @@
     <Folder Include="Views\Company\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Employee\Delete.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>

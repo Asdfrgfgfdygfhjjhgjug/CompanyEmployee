@@ -17,6 +17,8 @@
 
         Task Create(EmployeeRequestModel model);
 
+        Task Update(EmployeeRequestModel model);
+
         Task Delete(int id);
 
         Task<IEnumerable<Employee>> EmployeesInCompany(int Id);
