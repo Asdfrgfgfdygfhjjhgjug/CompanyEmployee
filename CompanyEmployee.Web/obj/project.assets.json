@@ -2600,6 +2600,13 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.0.1916590": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props": {},
+          "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets": {}
+        }
+      },
       "Microsoft.Win32.Registry/4.5.0": {
         "type": "package",
         "dependencies": {
@@ -6858,6 +6865,38 @@
         "runtime.json",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.0.1916590": {
+      "sha512": "bIEPJ4V0spW0aLb5/XQvs8ziv85wrR62IDowAItnfXCXHOUelEEOW59lq95IfXMFf/tWUDyrcLQh8rnFVfWWyw==",
+      "type": "package",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.0.1916590",
+      "files": [
+        ".signature.p7s",
+        "build/Container.props",
+        "build/Container.targets",
+        "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props",
+        "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets",
+        "build/ToolsTarget.props",
+        "build/ToolsTarget.targets",
+        "microsoft.visualstudio.azure.containers.tools.targets.1.0.1916590.nupkg.sha512",
+        "microsoft.visualstudio.azure.containers.tools.targets.nuspec",
+        "tools/Microsoft.VisualStudio.Containers.Tools.Common.dll",
+        "tools/Microsoft.VisualStudio.Containers.Tools.Tasks.dll",
+        "tools/cs/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/de/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/es/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/fr/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/it/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/ja/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/ko/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/pl/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/pt-BR/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/ru/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/tr/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/utils/KillProcess.exe",
+        "tools/zh-Hans/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/zh-Hant/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll"
       ]
     },
     "Microsoft.Win32.Registry/4.5.0": {
@@ -11787,13 +11826,15 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "AutoMapper >= 6.2.1",
       "CompanyEmployee.Common >= 1.0.0",
       "CompanyEmployee.Data >= 1.0.0",
       "CompanyEmployee.Services >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.Extensions.Http >= 2.1.1",
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.0.1916590"
     ]
   },
   "packageFolders": {
@@ -11803,11 +11844,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Web\\CompanyEmployee.Web.csproj",
+      "projectUniqueName": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Web\\CompanyEmployee.Web.csproj",
       "projectName": "CompanyEmployee.Web",
-      "projectPath": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Web\\CompanyEmployee.Web.csproj",
+      "projectPath": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Web\\CompanyEmployee.Web.csproj",
       "packagesPath": "C:\\Users\\Sekul\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Web\\obj\\",
+      "outputPath": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -11826,14 +11867,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Common\\CompanyEmployee.Common.csproj": {
-              "projectPath": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Common\\CompanyEmployee.Common.csproj"
+            "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Common\\CompanyEmployee.Common.csproj": {
+              "projectPath": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Common\\CompanyEmployee.Common.csproj"
             },
-            "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Data\\CompanyEmployee.Data.csproj": {
-              "projectPath": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Data\\CompanyEmployee.Data.csproj"
+            "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Data\\CompanyEmployee.Data.csproj": {
+              "projectPath": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Data\\CompanyEmployee.Data.csproj"
             },
-            "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Services\\CompanyEmployee.Services.csproj": {
-              "projectPath": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Services\\CompanyEmployee.Services.csproj"
+            "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Services\\CompanyEmployee.Services.csproj": {
+              "projectPath": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Services\\CompanyEmployee.Services.csproj"
             }
           }
         }
@@ -11847,6 +11888,10 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "AutoMapper": {
+            "target": "Package",
+            "version": "[6.2.1, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
@@ -11866,6 +11911,10 @@
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
+          },
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+            "target": "Package",
+            "version": "[1.0.1916590, )"
           }
         },
         "imports": [

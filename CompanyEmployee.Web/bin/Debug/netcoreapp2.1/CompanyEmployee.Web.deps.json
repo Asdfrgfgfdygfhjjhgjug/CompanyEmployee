@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v2.1": {
       "CompanyEmployee.Web/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.1",
           "CompanyEmployee.Common": "1.0.0",
           "CompanyEmployee.Data": "1.0.0",
           "CompanyEmployee.Services": "1.0.0",

@@ -56,6 +56,7 @@
                 )
             {
                 employee.Id = model.Id;
+                employee.Name = model.Name;
                 employee.Experience = model.Experience;
                 employee.StartingDate = model.StartingDate;
                 employee.Salary = model.Salary;

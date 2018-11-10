@@ -47,10 +47,10 @@ namespace CompanyEmployee.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(EditCompany model)
+        public async Task<IActionResult> Edit(CompanyDetails model)
         {
             var requestUrl = client.CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, "Company/Put"));
-            var company = await client.PostAsync<EditCompany>(requestUrl, model);
+            var company = await client.PostAsync<CompanyDetails>(requestUrl, model);
 
             return this.RedirectToAction(nameof(HomeController.Index), "Home");
         }

@@ -99,7 +99,7 @@ namespace CompanyEmployee.Services
                 company.Information = model.Information;
 
                 await this.db.SaveChangesAsync();
-            }
+            } 
         }
     }
 }

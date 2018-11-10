@@ -65,11 +65,6 @@
             var companyExists = await this.companyService.Exists(model.Id);
             if (!companyExists)
             {
-                return NotFound("Company does not exist");
-            }
-            var exists = await this.companyService.Exists(model.Id, model.Name);
-            if (!exists)
-            {
                 this.ModelState.AddModelError(nameof(CompanyRequestModel.Name), "Company name does not exists");
                 return BadRequest(this.ModelState);
             }

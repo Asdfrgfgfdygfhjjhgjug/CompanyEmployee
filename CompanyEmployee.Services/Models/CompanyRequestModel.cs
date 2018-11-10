@@ -1,6 +1,8 @@
 ﻿namespace CompanyEmployee.Services.Models
 {
+    using CompanyEmployee.Data.Models.Entities;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class CompanyRequestModel
@@ -16,5 +18,7 @@
 
         [Required]
         public string Information { get; set; }
+
+        public IEnumerable<Employee> Employees { get; set; } = new List<Employee>();
     }
 }

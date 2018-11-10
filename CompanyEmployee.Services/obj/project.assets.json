@@ -4184,11 +4184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Services\\CompanyEmployee.Services.csproj",
+      "projectUniqueName": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Services\\CompanyEmployee.Services.csproj",
       "projectName": "CompanyEmployee.Services",
-      "projectPath": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Services\\CompanyEmployee.Services.csproj",
+      "projectPath": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Services\\CompanyEmployee.Services.csproj",
       "packagesPath": "C:\\Users\\Sekul\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Services\\obj\\",
+      "outputPath": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4207,11 +4207,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Common\\CompanyEmployee.Common.csproj": {
-              "projectPath": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Common\\CompanyEmployee.Common.csproj"
+            "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Common\\CompanyEmployee.Common.csproj": {
+              "projectPath": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Common\\CompanyEmployee.Common.csproj"
             },
-            "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Data\\CompanyEmployee.Data.csproj": {
-              "projectPath": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Data\\CompanyEmployee.Data.csproj"
+            "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Data\\CompanyEmployee.Data.csproj": {
+              "projectPath": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Data\\CompanyEmployee.Data.csproj"
             }
           }
         }

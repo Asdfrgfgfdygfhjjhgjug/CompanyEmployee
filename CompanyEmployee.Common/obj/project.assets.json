@@ -2940,11 +2940,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Common\\CompanyEmployee.Common.csproj",
+      "projectUniqueName": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Common\\CompanyEmployee.Common.csproj",
       "projectName": "CompanyEmployee.Common",
-      "projectPath": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Common\\CompanyEmployee.Common.csproj",
+      "projectPath": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Common\\CompanyEmployee.Common.csproj",
       "packagesPath": "C:\\Users\\Sekul\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sekul\\Desktop\\Test\\CompanyEmployee.Common\\obj\\",
+      "outputPath": "C:\\Users\\Sekul\\Desktop\\Test  with unit testing - Copy\\CompanyEmployee.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
